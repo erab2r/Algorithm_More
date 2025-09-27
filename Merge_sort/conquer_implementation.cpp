@@ -36,15 +36,12 @@ int main()
     }
     while (i<n)
     {
-        c[curr] =a[i];
-        i++;
-        curr++;      
+        c[curr++] =a[i++];      
     }
     while (j<m)
     {
-        c[curr] =b[j];
-        j++;
-        curr++;      
+        c[curr++] =b[j++];
+           
     }
     for(int i = 0;i<n+m;i++)
     {
