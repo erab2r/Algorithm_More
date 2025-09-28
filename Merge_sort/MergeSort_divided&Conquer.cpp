@@ -1,15 +1,57 @@
 #include <bits/stdc++.h>
 using namespace std;
+void conquer(int c[],int l,int mid,int r)
+{
+    int n = mid-l+1;
+    int a[n];
+    int k = l;
+    for(int i = 0;i<n;i++,k++)
+    {
+        a[i] =c[k];
+    }
+    int m  = r-mid;
+    int b[m];
+    k = mid+1;
+    for(int j = 0;j<m;j++,k++)
+    {
+        b[j] =c[k];
+    }
+    int i =0,j=0,curr=0;
+
+    while (i<n && j<m)
+    {
+        if(a[i]<b[j])
+        {
+            c[curr] =a[i];
+            i++;
+            curr++;
+        }
+        else
+        {
+            c[curr] =b[j];
+            j++;
+            curr++;
+        }
+    }
+    while (i<n)
+    {
+        c[curr++] =a[i++];      
+    }
+    while (j<m)
+    {
+        c[curr++] =b[j++];
+           
+    }
+}
 void divided(int a[],int l,int r)
 {   
-    for(int i=l;i<=r;i++)
-        cout << a[i] << " ";
-    cout << endl;
+
     if(l>=r)
         return;
     int mid = (l+r)/2;
     divided(a,l,mid);
     divided(a,mid+1,r);
+    conquer(a,l,mid,r);
 }
 int main()
 {   
