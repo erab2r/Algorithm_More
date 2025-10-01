@@ -45,7 +45,6 @@ void conquer(int c[],int l,int mid,int r)
 }
 void divided(int a[],int l,int r)
 {   
-
     if(l>=r)
         return;
     int mid = (l+r)/2;
